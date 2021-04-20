@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Search
+React-компонет поисковой строки
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Ссылка на рабочую версию проекта](https://rodin-anatoliy.github.io/search/)
+# Описание
+Реализация кастомного autocompite для input поисковой строки
 
-## Available Scripts
+## Как это должно работать?
 
-In the project directory, you can run:
+Пробная база состоит из 10 пользователей. При вводе символов в посиковую строку проиходит вывод подходящих запросов, при отсутствии пересечений не выводится ничего, при первом клике выводятся все 10 запросов, при клике в сторону запросы скрываются
 
-### `npm start`
+## Стек технологий (основа):
+- 1 React
+- 2 TypeScript
+- 3 Jest/Enzyme
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Время выполнения:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Примерно один рабочий день
 
-### `npm test`
+## Комментарий автора
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Спасибо, что прочитали инструкцию, надеюсь на обратную связь. Проект является пробой пера для технологий TypeScript, Jest/Enzyme (пол дня на изучение), не судите слишком строго 😊
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 4 Для установки:
+1. [Склонировать](https://git-scm.com/book/ru/v2/Appendix-C%3A-%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B-Git-%D0%9A%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B5%D0%B2) репозиторий на локальный компьютер
+1. После распаковки, в директории проекта выполнить команду: 
+    ```npm install``` 
+(должен быть установлен [Node.js](https://nodejs.org/en/))
+2. После установки зависимостей,в директории проекта для режима разработкм (dev mode), выполнить:
+    ```npm run start```
+3. Для проверки тестов:
+    ```npm run test```
+4. Для получения production (prod mode) версии проекта в директории проекта, выполнить:
+    ```npm run build```
+5. Созданная папка **build** является production версией проекта
