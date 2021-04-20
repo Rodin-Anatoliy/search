@@ -1,0 +1,10 @@
+.Search {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    max-width: 343px;
+    box-sizing: border-box;
+    margin: 20px auto 0 auto;
+    position: relative;
+}

@@ -1,0 +1,45 @@
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Results {
+    width: 100%;
+    border-radius: 0px 0px 6px 6px;
+    background: #FFF;
+    overflow: hidden;
+    position: absolute;
+    top: 56px;
+    max-height: 205px;
+    overflow-y: scroll;
+}
+
+/* хром, сафари */
+.Results::-webkit-scrollbar { width: 0; }
+/* ie 10+ */
+.Results { -ms-overflow-style: none; }
+/*firefox*/
+.Results { scrollbar-width: none; }
+
+.Results__preloader {
+    height: 205px;
+}
+
+.Results__error {
+    text-align: center;
+    padding: 8px 16px;
+    color: red;
+}
+
+.Results__preloader::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 36px);
+    right: calc(50% - 36px);
+    width: 72px;
+    height: 72px;
+    background-image: url(../../images/preloader.svg);
+    background-size: cover;
+    animation: spin .75s infinite linear;
+}
