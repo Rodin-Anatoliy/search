@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.62a510c2.chunk.css",
-    "main.js": "/static/js/main.5c71dcdd.chunk.js",
-    "main.js.map": "/static/js/main.5c71dcdd.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f2c7eec4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f2c7eec4.js.map",
-    "static/js/2.d3db64e8.chunk.js": "/static/js/2.d3db64e8.chunk.js",
-    "static/js/2.d3db64e8.chunk.js.map": "/static/js/2.d3db64e8.chunk.js.map",
-    "static/js/3.32a89155.chunk.js": "/static/js/3.32a89155.chunk.js",
-    "static/js/3.32a89155.chunk.js.map": "/static/js/3.32a89155.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.62a510c2.chunk.css.map": "/static/css/main.62a510c2.chunk.css.map",
-    "static/js/2.d3db64e8.chunk.js.LICENSE.txt": "/static/js/2.d3db64e8.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/NotoSans-Regular.cd66b030.ttf",
-    "static/media/Results.css": "/static/media/preloader.336a9381.svg",
-    "static/media/search.273f4b09.svg": "/static/media/search.273f4b09.svg"
+    "main.css": "/search/static/css/main.da32dcc6.chunk.css",
+    "main.js": "/search/static/js/main.57ed3bae.chunk.js",
+    "main.js.map": "/search/static/js/main.57ed3bae.chunk.js.map",
+    "runtime-main.js": "/search/static/js/runtime-main.6c16b07a.js",
+    "runtime-main.js.map": "/search/static/js/runtime-main.6c16b07a.js.map",
+    "static/js/2.54f91472.chunk.js": "/search/static/js/2.54f91472.chunk.js",
+    "static/js/2.54f91472.chunk.js.map": "/search/static/js/2.54f91472.chunk.js.map",
+    "static/js/3.e1c0bfe6.chunk.js": "/search/static/js/3.e1c0bfe6.chunk.js",
+    "static/js/3.e1c0bfe6.chunk.js.map": "/search/static/js/3.e1c0bfe6.chunk.js.map",
+    "index.html": "/search/index.html",
+    "static/css/main.da32dcc6.chunk.css.map": "/search/static/css/main.da32dcc6.chunk.css.map",
+    "static/js/2.54f91472.chunk.js.LICENSE.txt": "/search/static/js/2.54f91472.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/search/static/media/NotoSans-Regular.cd66b030.ttf",
+    "static/media/Results.css": "/search/static/media/preloader.336a9381.svg",
+    "static/media/search.273f4b09.svg": "/search/static/media/search.273f4b09.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f2c7eec4.js",
-    "static/js/2.d3db64e8.chunk.js",
-    "static/css/main.62a510c2.chunk.css",
-    "static/js/main.5c71dcdd.chunk.js"
+    "static/js/runtime-main.6c16b07a.js",
+    "static/js/2.54f91472.chunk.js",
+    "static/css/main.da32dcc6.chunk.css",
+    "static/js/main.57ed3bae.chunk.js"
   ]
 }
