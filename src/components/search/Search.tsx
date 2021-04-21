@@ -19,7 +19,7 @@ const Search: FC<SearchProps> =
     const [inputValue, setInputValue] = React.useState(''); // Хранение и запись input
     const [error, setError] = React.useState('');           // Ошибка при запросе к базе данных
 
-    const getInfo = (url : any) => {
+    const getInfo = (url : string) => {
         return fetch(url)
         .then(res => {
             if (res.ok) {
@@ -29,9 +29,20 @@ const Search: FC<SearchProps> =
         })
     }
 
-    document.addEventListener('click', (event: any) => {
-        !event.target.closest('.Search') && setWillClear(true)
-    })
+    React.useEffect(() => {
+        const bodyClickHandler = (event: Event) => {
+            if (event.target instanceof HTMLElement) {
+                !event.target.closest('.Search') && setWillClear(true)
+            }
+            
+        }
+
+        document.body.addEventListener('click', (event) => bodyClickHandler(event));
+
+        return () => document.body.removeEventListener('click', (event) => bodyClickHandler(event));
+    }, [])
+
+
 
     //const users: IUser[] = 
 
@@ -42,9 +53,9 @@ const Search: FC<SearchProps> =
                     .then(res => {
                         const users = res.map((user:any) => {
                             return {
-                                'id': user.id,
-                                'name': user.name,
-                                'username': user.username,
+                                id: user.id,
+                                name: user.name,
+                                username: user.username,
                             }
                         })
                         setUresInfo(users);
@@ -56,8 +67,8 @@ const Search: FC<SearchProps> =
                     .then(res => {
                         const photo = res.map((photo:any) => {
                             return {
-                                'id': photo.id,
-                                'thumbnailUrl': photo.thumbnailUrl,
+                                id: photo.id,
+                                thumbnailUrl: photo.thumbnailUrl,
                             }
                         })
                         setUserPhoto(photo);

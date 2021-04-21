@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
 import './Results.css';
 import User from '../user/User';
+import {IUser, IPhoto} from '../../types/types'
 
 interface ResultsProps {
-    errorMessage?: any;
-    inputValue?: string;
-    setInputValue?: any;
+    errorMessage?: string;
+    inputValue: string;
+    setInputValue?: (value: string) => void;
     willClear?: boolean;
-    setWillClear?: any;
+    setWillClear?: (value: boolean) => void;
     users?: any;
     photo?: any;
     isSent?: boolean;
@@ -21,14 +22,15 @@ const Results : FC<ResultsProps> =
         setInputValue,
         willClear,
         setWillClear,
-        users, photo,
+        users,
+        photo,
         isSent,
         isLoad
     }) => {
     
-    if (isLoad) {
+    if (isLoad && users) {
 
-        const userId = users.map((user: any) => {
+        const userId = users.map((user: IUser) => {
             return user.id
         });
 
@@ -43,8 +45,8 @@ const Results : FC<ResultsProps> =
             }
         }
 
-        users.forEach((user: any) => {
-            userPhoto.forEach((photo: any) => {
+        users.forEach((user: IUser) => {
+            userPhoto.forEach((photo: IPhoto) => {
                 if (user.id === photo.id) {
                     user.photo = photo
                 }
@@ -53,7 +55,7 @@ const Results : FC<ResultsProps> =
 
     }
 
-    const matches = (where: any, what: any) => {
+    const matches = (where: any, what: string) => {
         let result = false;
         for (let i=0; i < where.length; i++) {
             if (where[i].toLowerCase().includes(what.toLowerCase())) {
@@ -64,13 +66,13 @@ const Results : FC<ResultsProps> =
         return result
     }
 
-    const userClickHandler = (event: any, name: string) => {
+    const userClickHandler = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, name: string) => {
         event.preventDefault();
-        setInputValue(name);
-        setWillClear(true);
+        setInputValue && setInputValue(name);
+        setWillClear && setWillClear(true);
     }
 
-    const usersList = isLoad && users.map((user: any) => {
+    const usersList = isLoad && users && users.map((user: any) => {
         if (matches([user.username, user.name], inputValue)) {
             return <User
                 onClick={userClickHandler}

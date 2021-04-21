@@ -3,10 +3,10 @@ import './Bar.css';
 import lens from '../../images/search.svg';
 
 interface BarProps {
-    setIsSent?: any;
-    setIsLoad?: any;
-    setWillClear?: any;
-    setInputValue?: any;
+    setIsSent?: (value: boolean) => void;
+    setIsLoad?: (value: boolean) => void;
+    setWillClear?: (value: boolean) => void;
+    setInputValue?: (value: string) => void;
     inputValue?: string;
 }
 
@@ -20,20 +20,20 @@ const Bar: FC<BarProps> =
     }) => {
 
     const focusHandler = () => {
-        setIsSent(true);
-        setIsLoad(false);
-        setWillClear(false);
+        setIsSent && setIsSent(true);
+        setIsLoad && setIsLoad(false);
+        setWillClear && setWillClear(false);
     }
 
-    const inputHandler = (event: any) => {
+    const inputHandler = (event: React.FormEvent<HTMLInputElement>) => {
         let value = event.currentTarget.value;
-        setIsSent(true);
-        setIsLoad(false);
-        setWillClear(false);
-        setInputValue(value);
+        setIsSent && setIsSent(true);
+        setIsLoad && setIsLoad(false);
+        setWillClear && setWillClear(false);
+        setInputValue && setInputValue(value);
     }
 
-    const submitHandler = (event: any) => {
+    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
     }
 

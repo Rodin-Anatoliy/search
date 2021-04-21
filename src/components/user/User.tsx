@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import './User.css';
 
 interface UserProps {
-    name?: string;
-    nick?: string;
-    avatar?: string;
-    onClick?: any;
+    name: string;
+    nick: string;
+    avatar: string;
+    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>, name: string) => void;
 }
 const User: FC<UserProps> = 
     ({
@@ -16,7 +16,7 @@ const User: FC<UserProps> =
     }) => {
 
     return (
-      <div className="User" onClick={(e) => onClick(e, name)}>
+      <div className="User" onClick={(e) => {onClick && onClick(e, name)}}>
           <div className="User__avatar">
               <img src={avatar} alt="User avatar"/>
           </div>

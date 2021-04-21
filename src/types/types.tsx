@@ -2,19 +2,20 @@ export interface IUser {
     id: number;
     name: string;
     username: string;
-    // email: string;
-    // phone: string;
-    // website: string;
-    // adress: IAddress;
-    // company: ICompany;
+    email?: string;
+    phone?: string;
+    website?: string;
+    adress?: IAddress;
+    company?: ICompany;
+    photo?: IPhoto;
 }
 
 export interface IPhoto {
-    albumId: number;
     id: number;
     thumbnailUrl: string;
-    title: string;
-    url: string;
+    albumId?: number;
+    title?: string;
+    url?: string;
 }
 
 interface IAddress {
