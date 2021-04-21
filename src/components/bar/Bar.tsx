@@ -1,24 +1,39 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './Bar.css';
-import lens from '../../images/search.svg'
+import lens from '../../images/search.svg';
 
-function Bar(props: any) {
+interface BarProps {
+    setIsSent?: any;
+    setIsLoad?: any;
+    setWillClear?: any;
+    setInputValue?: any;
+    inputValue?: string;
+}
 
-    function focusHandler() {
-        props.setIsSent(true);
-        props.setIsLoad(false);
-        props.setWillClear(false);
+const Bar: FC<BarProps> =
+    ({
+        setIsSent,
+        setIsLoad,
+        setWillClear,
+        setInputValue,
+        inputValue
+    }) => {
+
+    const focusHandler = () => {
+        setIsSent(true);
+        setIsLoad(false);
+        setWillClear(false);
     }
 
-    function inputHandler(event: any) {
+    const inputHandler = (event: any) => {
         let value = event.currentTarget.value;
-        props.setIsSent(true);
-        props.setIsLoad(false);
-        props.setWillClear(false);
-        props.setInputValue(value);
+        setIsSent(true);
+        setIsLoad(false);
+        setWillClear(false);
+        setInputValue(value);
     }
 
-    function submitHandler(event: any) {
+    const submitHandler = (event: any) => {
         event.preventDefault();
     }
 
@@ -29,7 +44,7 @@ function Bar(props: any) {
             </button>
             
             <input 
-                value={props.inputValue}
+                value={inputValue}
                 autoComplete="off"
                 onFocus={() => {focusHandler()}}
                 onInput={(e) => {inputHandler(e)}}

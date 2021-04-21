@@ -1,19 +1,43 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './Results.css';
 import User from '../user/User';
+import {IUser} from '../../types/types'
 
-function Results(props: any) {
+interface ResultsProps {
+    errorMessage?: any;
+    inputValue?: string;
+    setInputValue?: any;
+    willClear?: boolean;
+    setWillClear?: any;
+    users?: any;
+    photo?: any;
+    isSent?: boolean;
+    isLoad?: boolean;
+    //User?: React.ReactChild | React.ReactNode;
+}
+
+const Results : FC<ResultsProps> = 
+    ({
+        errorMessage,
+        inputValue,
+        setInputValue,
+        willClear,
+        setWillClear,
+        users, photo,
+        isSent,
+        isLoad
+    }) => {
     
-    if (props.isLoad) {
+    if (isLoad) {
 
-        const userId = props.users.map((user: any) => {
+        const userId = users.map((user: any) => {
             return user.id
         });
 
         const userPhoto: any = [];
-        for (let i=0; i < props.photo.length; i++) {
-            if (userId.includes(props.photo[i].id)) {
-                userPhoto.push(props.photo[i]);
+        for (let i=0; i < photo.length; i++) {
+            if (userId.includes(photo[i].id)) {
+                userPhoto.push(photo[i]);
 
             }
             if (userPhoto.length === userId.length) {
@@ -21,7 +45,7 @@ function Results(props: any) {
             }
         }
 
-        props.users.forEach((user: any) => {
+        users.forEach((user: any) => {
             userPhoto.forEach((photo: any) => {
                 if (user.id === photo.id) {
                     user.photo = photo
@@ -31,7 +55,7 @@ function Results(props: any) {
 
     }
 
-    function matches(where: any, what: any) {
+    const matches = (where: any, what: any) => {
         let result = false;
         for (let i=0; i < where.length; i++) {
             if (where[i].toLowerCase().includes(what.toLowerCase())) {
@@ -42,18 +66,32 @@ function Results(props: any) {
         return result
     }
 
-    const usersList = props.isLoad && props.users.map((user: any) => {
-        if (matches([user.username, user.name], props.inputValue)) {
-            return <User setWillClear={props.setWillClear} inputValue={props.inputValue} setInputValue={props.setInputValue} name={user.name} nick={'@' + user.username} avatar={user.photo.thumbnailUrl} key={user.id}/>
+    const userClickHandler = (event: any, name: string) => {
+        event.preventDefault();
+        setInputValue(name);
+        setWillClear(true);
+    }
+
+    const usersList = isLoad && users.map((user: any) => {
+        if (matches([user.username, user.name], inputValue)) {
+            return <User
+                onClick={userClickHandler}
+                name={user.name}
+                nick={'@' + user.username}
+                avatar={user.photo.thumbnailUrl}
+                key={user.id}
+            />
         } else {return null}
     });
 
-    const error = `${props.error}`;
+
+
+    const errorMessageText = `${errorMessage}`;
     
     return (
-      <div className={props.isSent ? "Results Results__preloader" : "Results"}>
-          {props.isLoad && !props.willClear && !props.error && usersList}
-          {!!props.error && (<p className="Results__error">{error}</p>)}
+      <div className={isSent ? "Results Results__preloader" : "Results"}>
+          {isLoad && !willClear && !errorMessage && usersList}
+          {!!errorMessage && (<p className="Results__error">{errorMessageText}</p>)}
       </div>
     );
 }

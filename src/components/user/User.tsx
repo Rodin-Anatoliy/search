@@ -1,21 +1,28 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './User.css';
 
-function User(props: any) {
-    function clickHandler(event: any) {
-        event.preventDefault();
-        props.setInputValue(props.name);
-        props.setWillClear(true);
-    }
+interface UserProps {
+    name?: string;
+    nick?: string;
+    avatar?: string;
+    onClick?: any;
+}
+const User: FC<UserProps> = 
+    ({
+        name,
+        nick,
+        avatar,
+        onClick
+    }) => {
 
     return (
-      <div className="User" onClick={(e) => clickHandler(e)}>
+      <div className="User" onClick={(e) => onClick(e, name)}>
           <div className="User__avatar">
-              <img src={props.avatar} alt="User avatar"/>
+              <img src={avatar} alt="User avatar"/>
           </div>
           <div className="User__info">
-              <p className="User__name">{props.name}</p>
-              <p className="User__nick">{props.nick}</p>
+              <p className="User__name">{name}</p>
+              <p className="User__nick">{nick}</p>
           </div>
       </div>
     );
