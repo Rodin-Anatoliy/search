@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import './Results.css';
 import User from '../user/User';
-import {IUser} from '../../types/types'
 
 interface ResultsProps {
     errorMessage?: any;
@@ -13,7 +12,6 @@ interface ResultsProps {
     photo?: any;
     isSent?: boolean;
     isLoad?: boolean;
-    //User?: React.ReactChild | React.ReactNode;
 }
 
 const Results : FC<ResultsProps> = 

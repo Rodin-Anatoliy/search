@@ -37,37 +37,41 @@ const Search: FC<SearchProps> =
 
     React.useEffect(() => {
         if (isSent) {
-
-            getInfo(`https://jsonplaceholder.typicode.com/users`)
-                .then(res => {
-                    const users = res.map((user:any) => {
-                        return {
-                            'id': user.id,
-                            'name': user.name,
-                            'username': user.username,
-                        }
+            Promise.all([
+                getInfo(`https://jsonplaceholder.typicode.com/users`)
+                    .then(res => {
+                        const users = res.map((user:any) => {
+                            return {
+                                'id': user.id,
+                                'name': user.name,
+                                'username': user.username,
+                            }
+                        })
+                        setUresInfo(users);
+                        return users
                     })
-                    setUresInfo(users);
-                })
-                .catch(err => setError(err));
-            ;
+                ,
 
-            getInfo(`https://jsonplaceholder.typicode.com/photos`)
-                .then(res => {
-                    const photo = res.map((photo:any) => {
-                        return {
-                            'id': photo.id,
-                            'thumbnailUrl': photo.thumbnailUrl,
-                        }
+                getInfo(`https://jsonplaceholder.typicode.com/photos`)
+                    .then(res => {
+                        const photo = res.map((photo:any) => {
+                            return {
+                                'id': photo.id,
+                                'thumbnailUrl': photo.thumbnailUrl,
+                            }
+                        })
+                        setUserPhoto(photo);
+                        return photo
                     })
-                    setUserPhoto(photo);
-                    setTimeout(() => {
-                        setIsSent(false);
-                        setIsLoad(true);
-                    }, 100)
-                })
-                .catch(err => setError(err));
-            ;
+            ])
+            .then((res) => {
+                console.log(res);
+                setTimeout(() => {
+                    setIsSent(false);
+                    setIsLoad(true);
+                }, 100)
+            })
+            .catch(err => setError(err));
             
         }
     }, [isSent]);
