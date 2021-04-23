@@ -10,7 +10,6 @@ interface ResultsProps {
     willClear?: boolean;
     setWillClear?: (value: boolean) => void;
     users?: any;
-    photo?: any;
     isSent?: boolean;
     isLoad?: boolean;
 }
@@ -23,37 +22,36 @@ const Results : FC<ResultsProps> =
         willClear,
         setWillClear,
         users,
-        photo,
         isSent,
         isLoad
     }) => {
     
-    if (isLoad && users) {
+    // if (isLoad && users) {
 
-        const userId = users.map((user: IUser) => {
-            return user.id
-        });
+    //     const userId = users.map((user: IUser) => {
+    //         return user.id
+    //     });
 
-        const userPhoto: any = [];
-        for (let i=0; i < photo.length; i++) {
-            if (userId.includes(photo[i].id)) {
-                userPhoto.push(photo[i]);
+    //     const userPhoto: any = [];
+    //     for (let i=0; i < photo.length; i++) {
+    //         if (userId.includes(photo[i].id)) {
+    //             userPhoto.push(photo[i]);
 
-            }
-            if (userPhoto.length === userId.length) {
-                break
-            }
-        }
+    //         }
+    //         if (userPhoto.length === userId.length) {
+    //             break
+    //         }
+    //     }
 
-        users.forEach((user: IUser) => {
-            userPhoto.forEach((photo: IPhoto) => {
-                if (user.id === photo.id) {
-                    user.photo = photo
-                }
-            })
-        });
+    //     users.forEach((user: IUser) => {
+    //         userPhoto.forEach((photo: IPhoto) => {
+    //             if (user.id === photo.id) {
+    //                 user.photo = photo
+    //             }
+    //         })
+    //     });
 
-    }
+    // }
 
     const matches = (where: any, what: string) => {
         let result = false;
@@ -78,7 +76,7 @@ const Results : FC<ResultsProps> =
                 onClick={userClickHandler}
                 name={user.name}
                 nick={'@' + user.username}
-                avatar={user.photo.thumbnailUrl}
+                avatar={user.photo}
                 key={user.id}
             />
         } else {return null}

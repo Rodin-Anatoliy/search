@@ -18,7 +18,7 @@ const User: FC<UserProps> =
     return (
       <div className="User" onClick={(e) => {onClick && onClick(e, name)}}>
           <div className="User__avatar">
-              <img src={avatar} alt="User avatar"/>
+              <img className="User__img" src={avatar} alt="User avatar"/>
           </div>
           <div className="User__info">
               <p className="User__name">{name}</p>
