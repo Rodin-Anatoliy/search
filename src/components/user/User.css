@@ -1,6 +1,7 @@
 .User {
     padding: 8px 16px;
     display: flex;
+    flex-direction: row;
     width: 100%;
     box-sizing: border-box;
 } 
@@ -15,6 +16,12 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 1.36;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .User__nick {
@@ -23,10 +30,14 @@
     font-size: 12px;
     color: #98999A;
     line-height: 1.36;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    word-wrap: break-word;
 }
 
 .User__avatar {
-    display: flex;
     margin-right: 8px;
     width: 40px;
     height: 40px;
@@ -34,7 +45,14 @@
     overflow: hidden;
 }
 
+.User__img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 .User__info {
+    width: calc(100% - 48px);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,24 +1,39 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './Bar.css';
-import lens from '../../images/search.svg'
+import lens from '../../images/search.svg';
 
-function Bar(props: any) {
+interface BarProps {
+    setIsSent?: (value: boolean) => void;
+    setIsLoad?: (value: boolean) => void;
+    setWillClear?: (value: boolean) => void;
+    setInputValue?: (value: string) => void;
+    inputValue?: string;
+}
 
-    function focusHandler() {
-        props.setIsSent(true);
-        props.setIsLoad(false);
-        props.setWillClear(false);
+const Bar: FC<BarProps> =
+    ({
+        setIsSent,
+        setIsLoad,
+        setWillClear,
+        setInputValue,
+        inputValue
+    }) => {
+
+    const focusHandler = () => {
+        setIsSent && setIsSent(true);
+        setIsLoad && setIsLoad(false);
+        setWillClear && setWillClear(false);
     }
 
-    function inputHandler(event: any) {
+    const inputHandler = (event: React.FormEvent<HTMLInputElement>) => {
         let value = event.currentTarget.value;
-        props.setIsSent(true);
-        props.setIsLoad(false);
-        props.setWillClear(false);
-        props.setInputValue(value);
+        setIsSent && setIsSent(true);
+        setIsLoad && setIsLoad(false);
+        setWillClear && setWillClear(false);
+        setInputValue && setInputValue(value);
     }
 
-    function submitHandler(event: any) {
+    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
     }
 
@@ -29,7 +44,7 @@ function Bar(props: any) {
             </button>
             
             <input 
-                value={props.inputValue}
+                value={inputValue}
                 autoComplete="off"
                 onFocus={() => {focusHandler()}}
                 onInput={(e) => {inputHandler(e)}}

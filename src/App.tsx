@@ -2,7 +2,7 @@ import React from 'react';
 import Search from './components/search/Search';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Search/>
