@@ -18,16 +18,6 @@ const Search: FC<SearchProps> =
     const [willClear, setWillClear] = React.useState(false);// Очистка поля результатов
     const [inputValue, setInputValue] = React.useState(''); // Хранение и запись input
     const [error, setError] = React.useState('');           // Ошибка при запросе к базе данных
-
-    const getInfo = (url : string) => {
-        return fetch(url)
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(console.log(`Ошибка: ${res.status}`));
-        })
-    }
     const Api = new NewsApi({url:'https://newsapi.org/v2/', key:'2356832b0876432c8814987efd07620a'});
   
     
@@ -43,10 +33,6 @@ const Search: FC<SearchProps> =
 
         return () => document.body.removeEventListener('click', (event) => bodyClickHandler(event));
     }, [])
-
-
-
-    //const users: IUser[] = 
 
     React.useEffect(() => {
         if (isSent) {
