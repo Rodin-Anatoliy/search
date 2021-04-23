@@ -18,7 +18,7 @@ const Search: FC<SearchProps> =
     const [willClear, setWillClear] = React.useState(false);// Очистка поля результатов
     const [inputValue, setInputValue] = React.useState(''); // Хранение и запись input
     const [error, setError] = React.useState('');           // Ошибка при запросе к базе данных
-    const Api = new NewsApi({url:'https://newsapi.org/v2/', key:'2356832b0876432c8814987efd07620a'});
+    const Api = new NewsApi({url:'https://nomoreparties.co/news/v2/', key:'2356832b0876432c8814987efd07620a'});
   
     
     React.useEffect(() => {
