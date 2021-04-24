@@ -25,33 +25,6 @@ const Results : FC<ResultsProps> =
         isSent,
         isLoad
     }) => {
-    
-    // if (isLoad && users) {
-
-    //     const userId = users.map((user: IUser) => {
-    //         return user.id
-    //     });
-
-    //     const userPhoto: any = [];
-    //     for (let i=0; i < photo.length; i++) {
-    //         if (userId.includes(photo[i].id)) {
-    //             userPhoto.push(photo[i]);
-
-    //         }
-    //         if (userPhoto.length === userId.length) {
-    //             break
-    //         }
-    //     }
-
-    //     users.forEach((user: IUser) => {
-    //         userPhoto.forEach((photo: IPhoto) => {
-    //             if (user.id === photo.id) {
-    //                 user.photo = photo
-    //             }
-    //         })
-    //     });
-
-    // }
 
     const matches = (where: any, what: string) => {
         let result = false;
@@ -72,11 +45,12 @@ const Results : FC<ResultsProps> =
 
     const usersList = isLoad && users && users.map((user: any) => {
         if (matches([user.username, user.name], inputValue)) {
+            const photo = typeof user.photo === "string" ? user.photo : 'https://bugaga.ru/uploads/posts/2017-03/1489052030_kotik-hosiko-12.jpg';
             return <User
                 onClick={userClickHandler}
                 name={user.name}
-                nick={'@' + user.username}
-                avatar={user.photo}
+                nick={user.username}
+                avatar={photo}
                 key={user.id}
             />
         } else {return null}

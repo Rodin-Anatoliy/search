@@ -14,7 +14,7 @@ describe('Results component test', () => {
   });
 
   it('should render component with one children', () => {
-    const wrapper = shallow(<Results isLoad={true} willClear={false} errorMessage={false} inputValue={''} users={[{name:'test', username:'@test', id:'1'}]} photo={[{thumbnailUrl:'https://img1.fonwall.ru/o/yh/animal-bird-branches-closeup.jpeg?route=mid&h=750', id:'1'}]}/>);
+    const wrapper = shallow(<Results isLoad={true} willClear={false} errorMessage={false} inputValue={''} users={[{name:'test', username:'test', id:'1'}]} photo={[{thumbnailUrl:'https://img1.fonwall.ru/o/yh/animal-bird-branches-closeup.jpeg?route=mid&h=750', id:'1'}]}/>);
     expect(wrapper.find('.Results').length).toBe(1);
     expect(wrapper.find('.Results User').length).toBe(1);
   });

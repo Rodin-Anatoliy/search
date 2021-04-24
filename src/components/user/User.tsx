@@ -15,10 +15,25 @@ const User: FC<UserProps> =
         onClick
     }) => {
 
+    const [image, setImage] = React.useState(avatar);
+
+    const renderImageSecurity = (avatar: string) => {
+        const img = new Image;
+        img.src = `${avatar}`;
+        img.onload = function(){
+            (img.width && img.height === 0) && setImage('https://bugaga.ru/uploads/posts/2017-03/1489052030_kotik-hosiko-12.jpg')
+        }
+        img.onerror = function(){
+            setImage('https://bugaga.ru/uploads/posts/2017-03/1489052030_kotik-hosiko-12.jpg')
+        }
+    }
+
+    renderImageSecurity(avatar);
+
     return (
       <div className="User" onClick={(e) => {onClick && onClick(e, name)}}>
           <div className="User__avatar">
-              <img className="User__img" src={avatar} alt="User avatar"/>
+              <img className="User__img" src={image} alt="User avatar"/>
           </div>
           <div className="User__info">
               <p className="User__name">{name}</p>
