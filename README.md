@@ -37,10 +37,10 @@ React-компонет поисковой строки - [cсылка на ра�
 ## Getting Started
 #### Import
 ```1. import { Injection, ClassNameInjection } from 'extension-injection'```  
-```2. import extensionInjection from 'extension-injection'``` 
-```3. const extensionInjection = require('extension-injection')'```
+```2. import extensionInjection from 'extension-injection'```  
+```3. const extensionInjection = require('extension-injection')'```  
 #### Call
 1. ```Injection``` and ```ClassNameInjection``` ready to call
 2. Use ```extensionInjection.Injection``` and ```extensionInjection.ClassNameInjection```
-3. Use ```extensionInjection.Injection``` and ```extensionInjection.ClassNameInjection```
+3. Use **extensionInjection.Injection** and ```extensionInjection.ClassNameInjection```
 ##
