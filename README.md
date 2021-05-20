@@ -1,6 +1,7 @@
 # Search
 React-компонет поисковой строки - [cсылка на рабочую версию проекта](https://rodin-anatoliy.github.io/search/)
 
+
 # Описание
 Реализация кастомного autocompite для input поисковой строки
 
